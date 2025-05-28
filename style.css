@@ -5,16 +5,16 @@
     --secondary-color: #ff9e53;
     --accent-color: #ffd8b8;
     --background: #fff4ed;
-    --text-color: #333;
-    --text-light: #777;
+    --text-color: #2d2d2d;
+    --text-light: #666;
     --white: #ffffff;
     --black: #222;
-    --gray: #f5f5f5;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --gray: #f7f7f7;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
     --border-radius: 12px;
-    --section-padding: 6rem 0;
+    --section-padding: 5rem 0;
 }
 
 * {
@@ -39,7 +39,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -73,21 +73,19 @@ button {
     font-weight: 600;
     transition: var(--transition);
     text-align: center;
-    padding: 1.5rem 3rem !important; /* Larger padding */
-    font-size: 1.8rem !important; /* Larger font */
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
 }
 
 .cta-btn {
     background-color: var(--primary-color);
     color: var(--white);
     box-shadow: var(--shadow);
-    padding: 10px;
-    border-radius: 5px;
 }
 
 .cta-btn:hover {
     background-color: var(--primary-dark);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }
 
@@ -95,20 +93,18 @@ button {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
 }
 
 .outline-btn:hover {
     background-color: var(--primary-color);
     color: var(--white);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .section-title {
     font-size: 3.6rem;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
     text-align: center;
 }
@@ -122,7 +118,7 @@ button {
     text-align: center;
     color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.4rem;
@@ -149,13 +145,14 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%; /* Adjusts focus of the image */
+    object-position: center 30%;
 }
 
 .nav {
     position: relative;
     z-index: 10;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+    transition: var(--transition);
 }
 
 .nav-bar {
@@ -165,7 +162,7 @@ header {
 }
 
 .logo h2 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: var(--white);
 }
@@ -224,7 +221,7 @@ header {
 
 .icons i:hover {
     color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 #mobileMenuBtn {
@@ -234,24 +231,36 @@ header {
 }
 
 /* Hero Section */
+#hero-section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .hero {
     position: relative;
     z-index: 5;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 10rem;
+    justify-content: space-between; /* Distributes space between content and image */
+    align-items: center; /* Vertically centers content and image */
+    min-height: 90vh;
+    padding-top: 8rem;
     color: var(--white);
+    gap: 2rem; /* Adds spacing between content and image */
 }
 
 .hero-content {
+    flex: 1; /* Takes equal space as hero-img */
     max-width: 600px;
-    padding: 2rem 0;
+    padding: 2rem;
+    text-align: center; /* Centers text within its space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers text */
 }
 
 .hero-content h1 {
-    font-size: 5.2rem;
+    font-size: 5rem;
     font-weight: 700;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -267,21 +276,29 @@ header {
     margin-bottom: 3rem;
     font-weight: 400;
     max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
     gap: 2rem;
-    margin-top: 3rem;
+    justify-content: center; /* Centers buttons */
 }
 
 .hero-img {
-    position: relative;
+    flex: 1; /* Takes equal space as hero-content */
+    display: flex;
+    justify-content: center; /* Centers image horizontally */
+    align-items: center; /* Centers image vertically */
     animation: float 4s ease-in-out infinite;
 }
 
 .hero-img img {
-    max-width: 600px;
+    width: 100%;
+    max-width: 500px; /* Limits image size to avoid overflow */
+    height: auto;
+    object-fit: contain; /* Maintains aspect ratio without cropping */
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
 }
 
@@ -299,7 +316,6 @@ header {
 .about-us .container {
     display: flex;
     align-items: center;
-    flex-direction: row; /* Ensures side-by-side layout */
     gap: 5rem;
 }
 
@@ -317,7 +333,7 @@ header {
 }
 
 .left-side:hover img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .right-side {
@@ -327,7 +343,7 @@ header {
 .right-side p {
     color: var(--text-light);
     font-size: 1.6rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
 }
 
@@ -335,19 +351,19 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .stat-item {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--gray);
     border-radius: var(--border-radius);
 }
 
 .stat-number {
     display: block;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
@@ -364,7 +380,7 @@ header {
 }
 
 .menu-swiper {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
     position: relative;
 }
 
@@ -386,7 +402,7 @@ header {
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
 }
 
@@ -400,13 +416,12 @@ header {
     border-radius: 50px;
     font-size: 1.2rem;
     font-weight: 600;
-    z-index: 2;
 }
 
 .card img {
     width: 100%;
     border-radius: var(--border-radius);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     aspect-ratio: 1/1;
     object-fit: cover;
 }
@@ -429,10 +444,10 @@ header {
 }
 
 .price {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--text-color);
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .add-to-cart {
@@ -450,40 +465,6 @@ header {
     background-color: var(--primary-dark);
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-    width: 4rem;
-    height: 4rem;
-    background-color: var(--white);
-    border-radius: 50%;
-    box-shadow: var(--shadow);
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-
-.swiper-pagination-bullet {
-    width: 1.2rem;
-    height: 1.2rem;
-    background-color: #ddd;
-    opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: var(--primary-color);
-}
-
 /* Features Section */
 .features-section {
     background-color: var(--white);
@@ -493,7 +474,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .feature-card {
@@ -507,8 +488,8 @@ header {
 }
 
 .feature-card.highlight {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(255, 107, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(255, 107, 0, 0.15);
     border-color: var(--accent-color);
 }
 
@@ -516,13 +497,13 @@ header {
     font-size: 3rem;
     color: var(--primary-color);
     background-color: var(--accent-color);
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
     transition: var(--transition);
 }
 
@@ -532,13 +513,76 @@ header {
 
 .feature-card h4 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .feature-card p {
     color: var(--text-light);
     font-size: 1.6rem;
-    line-height: 1.7;
+    line-height: 1.6;
+}
+
+/* Reservation Section */
+.reservation-section {
+    background-color: var(--gray);
+}
+
+.reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.reservation-form h3 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--gray);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--white);
+}
+
+.form-group input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: var(--primary-dark);
 }
 
 /* Testimonials Section */
@@ -551,8 +595,8 @@ header {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5rem;
-    margin-top: 5rem;
+    gap: 4rem;
+    margin-top: 4rem;
 }
 
 .testimonial-content {
@@ -564,12 +608,12 @@ header {
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .customer-info img {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--primary-color);
@@ -610,21 +654,21 @@ header {
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./pics/hero\ cover.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./pics/hero cover.jpg') no-repeat center center;
     background-size: cover;
     color: var(--white);
     text-align: center;
-    padding: 8rem 0;
+    padding: 7rem 0;
 }
 
 .cta-content h2 {
     font-size: 3.6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .cta-content p {
     font-size: 1.8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
 }
 
@@ -632,20 +676,19 @@ header {
 footer {
     background-color: var(--black);
     color: var(--white);
-    padding: 6rem 0 0;
+    padding: 5rem 0 0;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem;
-    margin-bottom: 4rem;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .footer-logo h2 {
     font-size: 2.4rem;
     margin-bottom: 1.5rem;
-    color: var(--white);
 }
 
 .footer-logo p {
@@ -675,14 +718,14 @@ footer {
 
 .social-icons a:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .footer-links h4,
 .footer-opening-hours h4,
 .footer-subscribe h4 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--white);
 }
 
@@ -785,41 +828,10 @@ footer {
     font-size: 1.4rem;
 }
 
-/*added details*/
-.footer-subscribe button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.footer-subscribe button:hover {
-    background-color: var(--primary-dark);
-}
-
-/* Fix input group layout */
-.input-group {
-    display: flex;
-    border-radius: 50px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.1);
-}
-
-.input-group input {
-    flex: 1;
-    padding: 1.5rem 2rem;
-    background: transparent;
-    border: none;
-    color: white;
-}
-
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero-content h1 {
-        font-size: 4.2rem;
+        font-size: 4rem;
     }
     
     .about-us .container {
@@ -832,7 +844,7 @@ footer {
     }
     
     .hero-img img {
-        max-width: 500px;
+        max-width: 400px; /* Adjusts image size on medium screens */
     }
 }
 
@@ -875,19 +887,14 @@ footer {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 12rem;
+        padding-top: 10rem;
     }
     
-    .hero-content {
-        margin-bottom: 5rem;
-    }
-    
-    .hero-content p {
+    .hero-content,
+    .hero-img {
+        flex: 1 1 100%; /* Stack evenly on mobile */
         max-width: 100%;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
+        margin-bottom: 2rem;
     }
     
     .hero-img img {
@@ -899,17 +906,8 @@ footer {
         flex-direction: column;
     }
     
-    .testimonial-content {
-        order: 2;
-    }
-    
-    .testimonial-image {
-        order: 1;
-    }
-
-    .btn {
-        padding: 1.2rem 2.5rem !important;
-        font-size: 1.6rem !important;
+    .about-stats {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -929,35 +927,11 @@ footer {
     
     .btn {
         width: 100%;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.6rem;
     }
     
     .cta-content h2 {
         font-size: 2.8rem;
-    }
-}
-
-/* Ensure content doesn't get too wide on mobile */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-    
-    /* Hero section adjustments */
-    .hero {
-        padding-top: 8rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    
-    /* Make sure images don't overflow */
-    img {
-        max-width: 100%;
-        height: auto;
     }
 }
