@@ -231,18 +231,20 @@ header {
 }
 
 /* Hero Section */
-#hero-section{
+#hero-section {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .hero {
     position: relative;
     z-index: 5;
+    width: 100%;
+    max-width: 1240px;
     display: flex;
-    justify-content: space-between; /* Distributes space between content and image */
-    align-items: center; /* Vertically centers content and image */
+    justify-content: space-between;
+    align-items: center;
     min-height: 90vh;
     padding-top: 8rem;
     color: var(--white);
@@ -778,10 +780,12 @@ footer {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .input-group input {
-    flex: 1;
+    flex: 1 1 150px; /* Grow and shrink with min-width */
+    min-width: 150px;
     padding: 1.2rem 2rem;
     border: none;
     outline: none;
@@ -795,11 +799,12 @@ footer {
 }
 
 .input-group button {
-    padding: 0 2rem;
+    padding: 1.2rem 2rem; /* Match input height */
     background-color: var(--primary-color);
     color: var(--white);
     font-size: 1.6rem;
     transition: var(--transition);
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 .input-group button:hover {
@@ -893,10 +898,16 @@ footer {
     .hero-content,
     .hero-img {
         flex: 1 1 100%; /* Stack evenly on mobile */
+        width: 100%;
         max-width: 100%;
         margin-bottom: 2rem;
     }
     
+    .hero-img {
+        order: -1; /* Image first on mobile */
+        margin-bottom: 3rem;
+    }
+
     .hero-img img {
         max-width: 80%;
         margin: 0 auto;
@@ -933,5 +944,17 @@ footer {
     
     .cta-content h2 {
         font-size: 2.8rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+    
+    .input-group input,
+    .input-group button {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
     }
 }

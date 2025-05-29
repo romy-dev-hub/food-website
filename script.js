@@ -22,29 +22,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize Swiper
     const swiper = new Swiper('.menu-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
         },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-            },
-            992: {
-                slidesPerView: 3,
-            }
-        },
-        touchEventsTarget: 'container',
-        grabCursor: true,
-        preventClicks: true,
-        preventClicksPropagation: true
-    });
+        992: {
+            slidesPerView: 3,
+        }
+    },
+    // Add these parameters for mobile touch
+    touchRatio: 1,
+    grabCursor: true,
+    allowTouchMove: true,
+    simulateTouch: true,
+    // Add observer for responsive changes
+    observer: true,
+    observeParents: true
+  });
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
