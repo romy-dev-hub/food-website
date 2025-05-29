@@ -164,49 +164,50 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add to cart animation
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const card = this.closest('.card');
-            const img = card.querySelector('img');
-            const imgClone = img.cloneNode(true);
+    document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-to-cart')) {
+        const button = event.target;
+        const card = button.closest('.card');
+        const img = card.querySelector('img');
+        const imgClone = img.cloneNode(true);
+        
+        imgClone.style.position = 'fixed';
+        imgClone.style.width = '100px';
+        imgClone.style.height = '100px';
+        imgClone.style.objectFit = 'cover';
+        imgClone.style.borderRadius = '50%';
+        imgClone.style.zIndex = '1000';
+        imgClone.style.top = img.getBoundingClientRect().top + 'px';
+        imgClone.style.left = img.getBoundingClientRect().left + 'px';
+        imgClone.style.transition = 'all 0.5s ease';
+        imgClone.style.pointerEvents = 'none';
+        
+        document.body.appendChild(imgClone);
+        
+        setTimeout(() => {
+            const cartIcon = document.querySelector('.fa-cart-shopping');
+            const cartRect = cartIcon.getBoundingClientRect();
             
-            imgClone.style.position = 'fixed';
-            imgClone.style.width = '100px';
-            imgClone.style.height = '100px';
-            imgClone.style.objectFit = 'cover';
-            imgClone.style.borderRadius = '50%';
-            imgClone.style.zIndex = '1000';
-            imgClone.style.top = img.getBoundingClientRect().top + 'px';
-            imgClone.style.left = img.getBoundingClientRect().left + 'px';
-            imgClone.style.transition = 'all 0.5s ease';
-            imgClone.style.pointerEvents = 'none';
+            imgClone.style.top = cartRect.top + 'px';
+            imgClone.style.left = cartRect.left + 'px';
+            imgClone.style.width = '20px';
+            imgClone.style.height = '20px';
+            imgClone.style.opacity = '0.5';
+        }, 10);
+        
+        setTimeout(() => {
+            imgClone.remove();
             
-            document.body.appendChild(imgClone);
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#28a745';
             
             setTimeout(() => {
-                const cartIcon = document.querySelector('.fa-cart-shopping');
-                const cartRect = cartIcon.getBoundingClientRect();
-                
-                imgClone.style.top = cartRect.top + 'px';
-                imgClone.style.left = cartRect.left + 'px';
-                imgClone.style.width = '20px';
-                imgClone.style.height = '20px';
-                imgClone.style.opacity = '0.5';
-            }, 10);
-            
-            setTimeout(() => {
-                imgClone.remove();
-                
-                this.textContent = 'Added!';
-                this.style.backgroundColor = '#28a745';
-                
-                setTimeout(() => {
-                    this.textContent = 'Add to cart';
-                    this.style.backgroundColor = '';
-                }, 2000);
-            }, 600);
-        });
-    });
+                button.textContent = 'Add to cart';
+                button.style.backgroundColor = '';
+            }, 2000);
+        }, 600);
+    }
+});
     
     // Scroll reveal animation
     if (typeof ScrollReveal !== 'undefined') {

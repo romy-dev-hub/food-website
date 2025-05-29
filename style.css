@@ -269,7 +269,7 @@ header {
 }
 
 .hero-content span {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .hero-content p {
